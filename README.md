@@ -9,8 +9,8 @@
 - Open your bash terminal and set up your project directory by cloning the repo and installing dependencies needed.
 
 ```bash
-git clone 'this-github-repo-url'
-cd 'repo/root/directory'
+git clone -b tutorial https://bitbucket.org/crypto-ist/bsc-crowdsale
+cd bsc-crowdsale
 npm install
 ```
 
@@ -22,5 +22,15 @@ npm install
 truffle compile
 truffle deploy --network bscTestnet #Use desired network from truffle-config.js
 ```
+
+### Flatten smart contracts into single file for smart contract verification via block explorers
+
+- within project's root directory using bash terminal. Replace values in example below with the filenames of your smart contracts within the `./contracts` directory.
+
+```bash
+mkdir ./flattened && npx truffle-flattener ./contracts/HGToken.sol > ./flattened/HGToken.sol.flat
+```
+
+- Check your `./flattened` folder for the single file of each contract within your `./contracts` directory. This combines all the imports within your smart contracts to allow for easier smart contract verification.
 
 **_If you run into any issues, feel free to send me an email or join my Telegram channel where I try to help as many as I can, when I can. Thank you and don't forget to check out my YouTube @hashguide & website TheCryptoist.com & most of all, don't forget to share to the next person so we can further out reach!_**
